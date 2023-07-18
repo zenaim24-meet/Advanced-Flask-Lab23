@@ -20,12 +20,13 @@ posts = {
     "https://global-uploads.webflow.com/5fe28feebcae602620061802/5fe5401840671a36cd1d47d5_5de6d5024dd1a74670173aed_1-p-1080.jpeg": "Our lovely TAs!"}
 
 
+
 #####
 
 
 @app.route('/')  # '/' for the default page
 def home():
-    return render_template('index.html')
+    return render_template('index.html', description= user_bio, image= image_link, postslist=posts, twitter= "https://twitter.com/meet_education", facebook= "https://www.facebook.com/MEET.entrepreneurs.of.tomorrow", instagram= "https://www.instagram.com/meet_education/", mail= "mailto:info@meet.mit.edu?subject=Contact%20us%20-%20website%20visitor", px= "https://500px.com/")
 
 
 @app.route('/about')  # '/' for the default page

@@ -4,7 +4,7 @@
 		<title>Instagram</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}" >
 	</head>
 	<body>
 
@@ -13,20 +13,20 @@
 
 				<!-- Header -->
 					<header id="header">
-						<span class="avatar"><img src="{{url_for('static',filename='images/avatar.jpg')}}" alt="" /></span>
+						<span class="avatar"><img src="{{image}}" alt="" /></span>
 
-            <h1>Description</h1>
+            <h1>{{description}}</h1>
             <br>
             <!-- About me button -->
-            <a href="#"><button style="color:white;width:40%" >More about me</button></a>
+            <a href="/about"><button style="color:white;width:40%" >More about me</button></a>
             <!--  -->
             <br> <br>
 						<ul class="icons">
-							<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-							<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-							<li><a href="#" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
-							<li><a href="#" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
+							<li><a href="{{twitter}}" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="{{facebook}}" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
+							<li><a href="{{instagram}}" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
+							<li><a href="{{px}}" class="icon style2 fa-500px"><span class="label">500px</span></a></li>
+							<li><a href="{{mail}}" class="icon style2 fa-envelope-o"><span class="label">Email</span></a></li>
 						</ul>
 					</header>
 
@@ -43,16 +43,25 @@
                       </a>
                 
                       <a href="">
-                        <img src="url_for('static',filename='images/thumbs/02.jpg')" alt="" />
+                        <img src="{{url_for('static',filename='images/thumbs/02.jpg')}}" alt="" />
+                        <h3>Caption... blah blah blah</h3>
+                      </a>
+                      <a href="">
+                        <img src="{{url_for('static',filename='images/thumbs/03.jpg')}}" alt="" />
                         <h3>Caption... blah blah blah</h3>
                       </a>
                 </div>    
                 <div>
-                  <a href="">
-                        <img src="{{url_for('static',filename='images/thumbs/03.jpg')}}" alt="" />
-                        <h3>Caption... blah blah blah</h3>
+                 
+                   {% for post in postslist %}
+                   	 <a href="">
+                        <img src="{{post}}" alt="" />
+                        <h3>{{ postslist[post] }}</h3>
                       </a>
-                </div>  
+                    {% endfor %}
+           
+                 		
+                	</div>
 
 							</section>
 
